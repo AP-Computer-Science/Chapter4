@@ -1,6 +1,6 @@
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
-import javax.swing.ListModel;
+import java.util.*;
 public class Employer {
     private HashMap<String, Employee> employees;
     public Employer() {
@@ -12,11 +12,11 @@ public class Employer {
     public Employee[] getEmployees() {
         return (Employee[])employees.values().toArray();
     }
-    public String[] getEmployeesName() {
-        LinkedList<String> ll = new LinkedList<String>();
+    public HashSet<String> getEmployeesName() {
+        java.util.HashSet<String> ll = new HashSet<String>();
         for(Employee e : employees.values()) {
             ll.add(e.getName());
         }
-        return (String[])(ll.toArray());
+        return ll;
     }
 }

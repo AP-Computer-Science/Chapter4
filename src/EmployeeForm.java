@@ -1,3 +1,8 @@
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -75,13 +80,14 @@ public class EmployeeForm extends javax.swing.JFrame {
         employer.addEmployee(new Employee("Brian Barnes", 16, 1666, b, "Programmer", employer));
         employer.addEmployee(new Employee("Sal Pherson", 32, 1543, b, "Project Manager", employer));
         employer.addEmployee(new Employee("Emmy Barnes", 16, 155, b, "QA", employer));
+        employer.addEmployee(new Employee("Mr. Awesome", 32, 1765, b, "Network Administrator", employer));
         populateList();
     }//GEN-LAST:event_formWindowOpened
     private void populateList() {
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = employer.getEmployeesName();
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            HashSet<String> strings = employer.getEmployeesName();
+            public int getSize() { return strings.size(); }
+            public String getElementAt(int i) { return strings.toArray()[i].toString(); }
         });
     }
     /**
